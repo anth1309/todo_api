@@ -3,7 +3,7 @@
 import json
 import os
 
-FILE = "tasks.json"
+FILE = "data.json"
 
 def load():
     if os.path.exists(FILE) and os.path.getsize(FILE) > 0:

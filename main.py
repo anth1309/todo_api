@@ -17,8 +17,14 @@ class TaskUpdate(BaseModel):
     done: bool = None
 
 @app.get("/tasks")
-def get_tasks(done: bool = None, priority: int = None):
-    return service.get_tasks(done=done, priority=priority   )
+def get_tasks(
+    done: bool = None,
+    priority: int = None,
+    page: int = 1,
+    limit: int = 10,
+    sort: str = "priority"
+):
+    return service.get_tasks(done, priority, page, limit, sort)
 
 @app.post("/tasks")
 def add_task(data: TaskIn):
